@@ -40,7 +40,7 @@
 .footer-bottom { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px; padding-top:25px; border-top:1px solid #254c6c26; font-size:12px; }
 .footer-token-ca { display:inline-flex; flex-wrap:wrap; align-items:center; gap:6px; min-width:0; max-width:100%; opacity:.7; }
 .footer-token-ca>span { max-width:100%; }
-.footer-token-ca-blur { display:inline-block; max-width:100%; overflow:hidden; white-space:nowrap; filter:blur(4.5px); user-select:none; pointer-events:none; font-family:'SF Mono','Fira Code',monospace; font-size:11px; letter-spacing:.3px; vertical-align:middle; }
+.footer-token-ca-address { display:inline-block; max-width:100%; overflow-wrap:anywhere; user-select:text; font-family:'SF Mono','Fira Code',monospace; font-size:11px; letter-spacing:.3px; vertical-align:middle; }
 .wallet-menu.restored-wallet { position:absolute; top:calc(100% + 16px); right:0; width:288px; max-width:calc(100vw - 32px); padding:0; border-radius:20px; color:#fff; background:#254c6cdd; border:1px solid #ffffff47; backdrop-filter:blur(32px) saturate(1.8); box-shadow:0 16px 48px #06162b4d,inset 0 1px #ffffff66; overflow:hidden; animation:wallet-enter .16s ease-out; }
 .wallet-menu-heading { display:flex; align-items:center; gap:8px; padding:16px; font-size:14px; }
 .wallet-menu-heading button { display:grid; place-items:center; width:27px; height:27px; border-radius:8px; background:#ffffff18; color:inherit; }

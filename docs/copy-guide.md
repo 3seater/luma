@@ -4,7 +4,7 @@ This file supersedes Beam's previous stocks-and-crypto positioning under the use
 
 - Name: Luma. Send **USDC on Arc** through a link.
 - Public identity: Twitter/X `@uselumacash` (`https://x.com/uselumacash`); website `useluma.cash` (`https://useluma.cash`).
-- $LUMA is not live yet. The footer CA is a blurred placeholder, not a released token contract address. Do not substitute the USDC escrow address.
+- User-supplied public $LUMA CA: `0xe08808ab2a67230e83d893c631c48de648e6f8f2`. Display it unblurred in the footer and link Argus to `https://argus.world/token/0xe08808ab2a67230e83d893c631c48de648e6f8f2`. This is separate from the USDC escrow address.
 - Preserve Beam's flow: sender signs in, sends and shares; recipient opens the link, signs in with Privy, receives an embedded wallet and claims without pre-funding gas.
 - Privy embedded EVM wallets and sponsored claims are implemented; see `docs/service-setup.md`. Distinguish implemented behavior from live availability, which requires configured services and end-to-end testing.
 - Anyone with the full link can claim once. Share privately.
