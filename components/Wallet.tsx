@@ -36,10 +36,10 @@ export function Wallet() {
     {open && <div id={id} className="wallet-menu restored-wallet" role="region" aria-label="Wallet menu">
       <div className="wallet-menu-heading"><strong>{address ? shortAddress(address) : 'Your account'}</strong><button aria-label="Copy address" disabled={!address} onClick={async () => { try { await navigator.clipboard.writeText(address!); setCopied(true); } catch { setError('Could not copy your address.'); } }}>{copied ? <Check size={14} /> : <Copy size={14} />}</button><button className="wallet-disconnect" aria-label="Disconnect wallet" onClick={disconnect}><LogOut size={16} /></button></div>
       {address && chainId !== arc.id && <button className="wallet-menu-action" onClick={async () => { try { await switchChainAsync({ chainId: arc.id }); } catch { setError('Could not switch to Arc. Please try again.'); } }}>Switch to {arc.name}<ChevronRight size={15} /></button>}
-      <div className="wallet-recent"><span>Recent links</span>{history.length ? history.map(item => <Link key={item.id} href="/history" onClick={() => setOpen(false)}><UsdcCoin /><strong>{item.amount} USDC</strong><ChevronRight size={14} /></Link>) : <p>No links sent yet.</p>}</div>
+      <Link className="wallet-menu-action" href="/wallet" onClick={() => setOpen(false)}>Your receiving wallet<ChevronRight size={15} /></Link><div className="wallet-recent"><span>Recent Lumas</span>{history.length ? history.map(item => <Link key={item.id} href="/history" onClick={() => setOpen(false)}><UsdcCoin /><strong>{item.amount} USDC</strong><ChevronRight size={14} /></Link>) : <p>No links sent yet.</p>}</div>
       <button className="wallet-menu-action" onClick={auth.connectWallet}>Connect another wallet<ChevronRight size={15} /></button>
       {auth.embeddedAddress && <button className="wallet-menu-action" onClick={async () => { try { await auth.exportWallet(); } catch { setError('Could not open your wallet. Please try again.'); } }}>Export your wallet<ChevronRight size={15} /></button>}
-      <Link className="wallet-menu-action wallet-all" href="/history" onClick={() => setOpen(false)}>View all links<ChevronRight size={16} /></Link>
+      <Link className="wallet-menu-action wallet-all" href="/history" onClick={() => setOpen(false)}>View all Lumas<ChevronRight size={16} /></Link>
       {error && <p role="alert" className="error">{error}</p>}
     </div>}
   </div>;

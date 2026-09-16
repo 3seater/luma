@@ -23,6 +23,6 @@ export function BottomCTA({
         </g>
       </svg>
     </div>
-    <div className="layout"><h2 id="cta-heading">USDC. Simply sent.</h2><button className="premium-button" onClick={() => onSendClick ? onSendClick() : router.push('/send')}>Send USDC <ArrowUpRight size={18} /></button></div>
+    <div className="layout"><h2 id="cta-heading">USDC. Simply sent.</h2><button className="premium-button" onClick={() => onSendClick ? onSendClick() : router.push('/send')}>Send a Luma <ArrowUpRight size={18} /></button></div>
   </section>;
 }

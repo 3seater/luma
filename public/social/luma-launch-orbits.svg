@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" fill="none">
+<title>Luma launch — abstract currency in orbit</title><desc>Dark reflective coins with fine engraved currency outlines, arranged on luminous rings over a midnight navy gradient.</desc>
+<defs>
+<radialGradient id="coinSurface" cx=".22" cy=".13" r="1"><stop stop-color="#7095a6"/><stop offset=".32" stop-color="#325774"/><stop offset=".7" stop-color="#102c46"/><stop offset="1" stop-color="#061629"/></radialGradient>
+<linearGradient id="etched" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="#ecfcff" stop-opacity=".9"/><stop offset=".4" stop-color="#a6d0d9" stop-opacity=".65"/><stop offset=".72" stop-color="#87b3bc" stop-opacity=".3"/><stop offset="1" stop-color="#dfcca1" stop-opacity=".8"/></linearGradient>
+<linearGradient id="bg" x2=".6" y2="1"><stop stop-color="#030c1b"/><stop offset=".5" stop-color="#06162b"/><stop offset="1" stop-color="#254c6c"/></linearGradient>
+<radialGradient id="atmosphere"><stop stop-color="#87b3bc" stop-opacity=".32"/><stop offset=".6" stop-color="#87b3bc" stop-opacity=".08"/><stop offset="1" stop-color="#87b3bc" stop-opacity="0"/></radialGradient>
+<radialGradient id="warm"><stop stop-color="#dfcca1" stop-opacity=".17"/><stop offset="1" stop-color="#dfcca1" stop-opacity="0"/></radialGradient>
+<linearGradient id="orbit" gradientUnits="userSpaceOnUse" x1="960" y1="150" x2="960" y2="1120"><stop stop-color="#d8f7ff"/><stop offset=".45" stop-color="#9edbe9" stop-opacity=".8"/><stop offset="1" stop-color="#87b3bc" stop-opacity=".12"/></linearGradient>
+<radialGradient id="faceLight" cx=".24" cy=".13" r=".93"><stop stop-color="#b5eeff" stop-opacity=".35"/><stop offset=".45" stop-color="#174689" stop-opacity="0"/><stop offset="1" stop-color="#020c24" stop-opacity=".65"/></radialGradient>
+<linearGradient id="gloss" x2=".5" y2="1"><stop stop-color="#fff" stop-opacity=".7"/><stop offset=".65" stop-color="#d1f2ff" stop-opacity=".2"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#bddde6" stop-opacity=".27"/><stop offset=".45" stop-color="#376080" stop-opacity=".7"/><stop offset="1" stop-color="#0a203b" stop-opacity=".95"/></linearGradient>
+<linearGradient id="rim" x2=".8" y2="1"><stop stop-color="#e7faff" stop-opacity=".85"/><stop offset=".5" stop-color="#87b3bc" stop-opacity=".2"/><stop offset="1" stop-color="#c8e3e8" stop-opacity=".55"/></linearGradient>
+<linearGradient id="edge" x2="0" y2="1"><stop stop-color="#395f76"/><stop offset="1" stop-color="#0b2036"/></linearGradient>
+<linearGradient id="silver" x2=".6" y2="1"><stop stop-color="#fff"/><stop offset=".45" stop-color="#c0dbe0"/><stop offset="1" stop-color="#7fa4b3"/></linearGradient>
+<filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="10"/></filter>
+<filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="20"/></filter>
+</defs>
+<path d="M0 0h1920v1080H0z" fill="url(#bg)"/>
+<ellipse cx="1020" cy="970" rx="1080" ry="940" fill="url(#atmosphere)"/>
+<ellipse cx="1730" cy="1170" rx="700" ry="530" fill="url(#warm)"/>
+<circle cx="960" cy="1100" r="420" stroke="url(#orbit)" stroke-width="5" opacity="0.1" filter="url(#glow)"/><circle cx="960" cy="1100" r="420" stroke="url(#orbit)" opacity="0.3" stroke-width="1.5"/><circle cx="960" cy="1100" r="680" stroke="url(#orbit)" stroke-width="10" opacity="0.4" filter="url(#glow)"/><circle cx="960" cy="1100" r="680" stroke="url(#orbit)" opacity="0.65" stroke-width="1.5"/><circle cx="960" cy="1100" r="940" stroke="url(#orbit)" stroke-width="18" opacity="0.9" filter="url(#glow)"/><circle cx="960" cy="1100" r="940" stroke="url(#orbit)" opacity="1" stroke-width="2.5"/>
+<g transform="translate(122 675) rotate(-18) scale(1 .94)" opacity="0.8">
+    <defs><clipPath id="coin1"><circle r="98.58"/></clipPath></defs>
+    <circle cy="18" r="97.52000000000001" fill="#020c1b" opacity=".6" filter="url(#shadow)"/>
+    <circle cy="7" r="101.75999999999999" fill="url(#edge)" stroke="#87b3bc" stroke-opacity=".45"/>
+    <circle r="101.75999999999999" fill="url(#rim)"/>
+    <circle r="98.58" fill="url(#coinSurface)"/>
+    <g transform="translate(-80.56 -80.56) scale(1.6783333333333335)" fill="none" stroke-linecap="round">
+      <path d="M34 17C9 28 9 68 34 79 M62 17C87 28 87 68 62 79 M60 34C57 24 34 25 34 39C34 53 62 43 62 58C62 72 37 72 34 61 M48 21V77" stroke="#020d1d" stroke-opacity=".8" stroke-width="2.2" transform="translate(0 1.2)"/>
+      <path d="M34 17C9 28 9 68 34 79 M62 17C87 28 87 68 62 79 M60 34C57 24 34 25 34 39C34 53 62 43 62 58C62 72 37 72 34 61 M48 21V77" stroke="url(#etched)" stroke-width="1.25"/>
+    </g>
+    <g clip-path="url(#coin1)">
+      <circle r="99.64" fill="url(#faceLight)"/>
+      <ellipse cx="-25.439999999999998" cy="-78.44" rx="120.83999999999999" ry="61.48" transform="rotate(-24)" fill="url(#gloss)" opacity=".3"/>
+    </g>
+    <circle r="99.004" stroke="url(#rim)" stroke-width="1.5"/>
+    <path d="M-89.03999999999999 -46.64 A101.124 101.124 0 0 1 48.760000000000005 -87.97999999999999" stroke="#eefaff" stroke-opacity=".8" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+<g transform="translate(458 306) rotate(12) scale(1 .94)" opacity="1">
+    <defs><clipPath id="coin2"><circle r="110.67"/></clipPath></defs>
+    <circle cy="18" r="109.48" fill="#020c1b" opacity=".6" filter="url(#shadow)"/>
+    <circle cy="7" r="114.24" fill="url(#edge)" stroke="#87b3bc" stroke-opacity=".45"/>
+    <circle r="114.24" fill="url(#rim)"/>
+    <circle r="110.67" fill="url(#coinSurface)"/>
+    <g transform="translate(-90.44 -90.44) scale(1.8841666666666665)" fill="none" stroke-linecap="round">
+      <path d="M34 17C9 28 9 68 34 79 M62 17C87 28 87 68 62 79 M60 34C57 24 34 25 34 39C34 53 62 43 62 58C62 72 37 72 34 61 M48 21V77" stroke="#020d1d" stroke-opacity=".8" stroke-width="2.2" transform="translate(0 1.2)"/>
+      <path d="M34 17C9 28 9 68 34 79 M62 17C87 28 87 68 62 79 M60 34C57 24 34 25 34 39C34 53 62 43 62 58C62 72 37 72 34 61 M48 21V77" stroke="url(#etched)" stroke-width="1.25"/>
+    </g>
+    <g clip-path="url(#coin2)">
+      <circle r="111.86" fill="url(#faceLight)"/>
+      <ellipse cx="-28.56" cy="-88.06" rx="135.66" ry="69.02" transform="rotate(-24)" fill="url(#gloss)" opacity=".3"/>
+    </g>
+    <circle r="111.146" stroke="url(#rim)" stroke-width="1.5"/>
+    <path d="M-99.96 -52.36 A113.526 113.526 0 0 1 54.74 -98.77" stroke="#eefaff" stroke-opacity=".8" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+<g transform="translate(1110 177) rotate(-11) scale(1 .94)" opacity="1">
+    <defs><clipPath id="coin3"><circle r="116.25"/></clipPath></defs>
+    <circle cy="18" r="115" fill="#020c1b" opacity=".6" filter="url(#shadow)"/>
+    <circle cy="7" r="120" fill="url(#edge)" stroke="#87b3bc" stroke-opacity=".45"/>
+    <circle r="120" fill="url(#rim)"/>
+    <circle r="116.25" fill="url(#coinSurface)"/>
+    <g transform="translate(-95 -95) scale(1.9791666666666667)" fill="none" stroke-linecap="round">
+      <path d="M34 17C9 28 9 68 34 79 M62 17C87 28 87 68 62 79 M60 34C57 24 34 25 34 39C34 53 62 43 62 58C62 72 37 72 34 61 M48 21V77" stroke="#020d1d" stroke-opacity=".8" stroke-width="2.2" transform="translate(0 1.2)"/>
+      <path d="M34 17C9 28 9 68 34 79 M62 17C87 28 87 68 62 79 M60 34C57 24 34 25 34 39C34 53 62 43 62 58C62 72 37 72 34 61 M48 21V77" stroke="url(#etched)" stroke-width="1.25"/>
+    </g>
+    <g clip-path="url(#coin3)">
+      <circle r="117.5" fill="url(#faceLight)"/>
+      <ellipse cx="-30" cy="-92.5" rx="142.5" ry="72.5" transform="rotate(-24)" fill="url(#gloss)" opacity=".3"/>
+    </g>
+    <circle r="116.75" stroke="url(#rim)" stroke-width="1.5"/>
+    <path d="M-105 -55 A119.25 119.25 0 0 1 57.5 -103.75" stroke="#eefaff" stroke-opacity=".8" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+<g transform="translate(1680 496) rotate(17) scale(1 .94)" opacity="1">
+    <defs><clipPath id="coin4"><circle r="117.18"/></clipPath></defs>
+    <circle cy="18" r="115.92" fill="#020c1b" opacity=".6" filter="url(#shadow)"/>
+    <circle cy="7" r="120.96" fill="url(#edge)" stroke="#87b3bc" stroke-opacity=".45"/>
+    <circle r="120.96" fill="url(#rim)"/>
+    <circle r="117.18" fill="url(#coinSurface)"/>
+    <g transform="translate(-95.76 -95.76) scale(1.995)" fill="none" stroke-linecap="round">
+      <path d="M34 17C9 28 9 68 34 79 M62 17C87 28 87 68 62 79 M60 34C57 24 34 25 34 39C34 53 62 43 62 58C62 72 37 72 34 61 M48 21V77" stroke="#020d1d" stroke-opacity=".8" stroke-width="2.2" transform="translate(0 1.2)"/>
+      <path d="M34 17C9 28 9 68 34 79 M62 17C87 28 87 68 62 79 M60 34C57 24 34 25 34 39C34 53 62 43 62 58C62 72 37 72 34 61 M48 21V77" stroke="url(#etched)" stroke-width="1.25"/>
+    </g>
+    <g clip-path="url(#coin4)">
+      <circle r="118.44" fill="url(#faceLight)"/>
+      <ellipse cx="-30.24" cy="-93.24" rx="143.64" ry="73.08" transform="rotate(-24)" fill="url(#gloss)" opacity=".3"/>
+    </g>
+    <circle r="117.68400000000001" stroke="url(#rim)" stroke-width="1.5"/>
+    <path d="M-105.83999999999999 -55.44 A120.204 120.204 0 0 1 57.96 -104.58" stroke="#eefaff" stroke-opacity=".8" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+<g transform="translate(397 719) rotate(10) scale(1 .94)" opacity="1">
+    <defs><clipPath id="coin5"><circle r="99.045"/></clipPath></defs>
+    <circle cy="18" r="97.98" fill="#020c1b" opacity=".6" filter="url(#shadow)"/>
+    <circle cy="7" r="102.24" fill="url(#edge)" stroke="#87b3bc" stroke-opacity=".45"/>
+    <circle r="102.24" fill="url(#rim)"/>
+    <circle r="99.045" fill="url(#coinSurface)"/>
+    <g transform="translate(-80.94 -80.94) scale(1.68625)" fill="none" stroke-linecap="round">
+      <path d="M34 17C9 28 9 68 34 79 M62 17C87 28 87 68 62 79 M60 34C57 24 34 25 34 39C34 53 62 43 62 58C62 72 37 72 34 61 M48 21V77" stroke="#020d1d" stroke-opacity=".8" stroke-width="2.2" transform="translate(0 1.2)"/>
+      <path d="M34 17C9 28 9 68 34 79 M62 17C87 28 87 68 62 79 M60 34C57 24 34 25 34 39C34 53 62 43 62 58C62 72 37 72 34 61 M48 21V77" stroke="url(#etched)" stroke-width="1.25"/>
+    </g>
+    <g clip-path="url(#coin5)">
+      <circle r="100.11" fill="url(#faceLight)"/>
+      <ellipse cx="-25.56" cy="-78.81" rx="121.41" ry="61.769999999999996" transform="rotate(-24)" fill="url(#gloss)" opacity=".3"/>
+    </g>
+    <circle r="99.471" stroke="url(#rim)" stroke-width="1.5"/>
+    <path d="M-89.46 -46.86 A101.601 101.601 0 0 1 48.99 -88.395" stroke="#eefaff" stroke-opacity=".8" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+<g transform="translate(858 428) rotate(-13) scale(1 .94)" opacity="1">
+    <defs><clipPath id="coin6"><circle r="114.855"/></clipPath></defs>
+    <circle cy="18" r="113.62" fill="#020c1b" opacity=".6" filter="url(#shadow)"/>
+    <circle cy="7" r="118.56" fill="url(#edge)" stroke="#87b3bc" stroke-opacity=".45"/>
+    <circle r="118.56" fill="url(#rim)"/>
+    <circle r="114.855" fill="url(#coinSurface)"/>
+    <g transform="translate(-93.86 -93.86) scale(1.9554166666666666)" fill="none" stroke-linecap="round">
+      <path d="M34 17C9 28 9 68 34 79 M62 17C87 28 87 68 62 79 M60 34C57 24 34 25 34 39C34 53 62 43 62 58C62 72 37 72 34 61 M48 21V77" stroke="#020d1d" stroke-opacity=".8" stroke-width="2.2" transform="translate(0 1.2)"/>
+      <path d="M34 17C9 28 9 68 34 79 M62 17C87 28 87 68 62 79 M60 34C57 24 34 25 34 39C34 53 62 43 62 58C62 72 37 72 34 61 M48 21V77" stroke="url(#etched)" stroke-width="1.25"/>
+    </g>
+    <g clip-path="url(#coin6)">
+      <circle r="116.08999999999999" fill="url(#faceLight)"/>
+      <ellipse cx="-29.64" cy="-91.39" rx="140.79" ry="71.63" transform="rotate(-24)" fill="url(#gloss)" opacity=".3"/>
+    </g>
+    <circle r="115.349" stroke="url(#rim)" stroke-width="1.5"/>
+    <path d="M-103.74 -54.34 A117.81899999999999 117.81899999999999 0 0 1 56.81 -102.505" stroke="#eefaff" stroke-opacity=".8" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+<g transform="translate(1480 667) rotate(14) scale(1 .94)" opacity="1">
+    <defs><clipPath id="coin7"><circle r="104.625"/></clipPath></defs>
+    <circle cy="18" r="103.5" fill="#020c1b" opacity=".6" filter="url(#shadow)"/>
+    <circle cy="7" r="108" fill="url(#edge)" stroke="#87b3bc" stroke-opacity=".45"/>
+    <circle r="108" fill="url(#rim)"/>
+    <circle r="104.625" fill="url(#coinSurface)"/>
+    <g transform="translate(-85.5 -85.5) scale(1.78125)" fill="none" stroke-linecap="round">
+      <path d="M34 17C9 28 9 68 34 79 M62 17C87 28 87 68 62 79 M60 34C57 24 34 25 34 39C34 53 62 43 62 58C62 72 37 72 34 61 M48 21V77" stroke="#020d1d" stroke-opacity=".8" stroke-width="2.2" transform="translate(0 1.2)"/>
+      <path d="M34 17C9 28 9 68 34 79 M62 17C87 28 87 68 62 79 M60 34C57 24 34 25 34 39C34 53 62 43 62 58C62 72 37 72 34 61 M48 21V77" stroke="url(#etched)" stroke-width="1.25"/>
+    </g>
+    <g clip-path="url(#coin7)">
+      <circle r="105.75" fill="url(#faceLight)"/>
+      <ellipse cx="-27" cy="-83.25" rx="128.25" ry="65.25" transform="rotate(-24)" fill="url(#gloss)" opacity=".3"/>
+    </g>
+    <circle r="105.075" stroke="url(#rim)" stroke-width="1.5"/>
+    <path d="M-94.5 -49.5 A107.32499999999999 107.32499999999999 0 0 1 51.75 -93.375" stroke="#eefaff" stroke-opacity=".8" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+<g transform="translate(690 778) rotate(-14) scale(1 .94)" opacity="1">
+    <defs><clipPath id="coin8"><circle r="94.39500000000001"/></clipPath></defs>
+    <circle cy="18" r="93.38000000000001" fill="#020c1b" opacity=".6" filter="url(#shadow)"/>
+    <circle cy="7" r="97.44" fill="url(#edge)" stroke="#87b3bc" stroke-opacity=".45"/>
+    <circle r="97.44" fill="url(#rim)"/>
+    <circle r="94.39500000000001" fill="url(#coinSurface)"/>
+    <g transform="translate(-77.14 -77.14) scale(1.6070833333333334)" fill="none" stroke-linecap="round">
+      <path d="M34 17C9 28 9 68 34 79 M62 17C87 28 87 68 62 79 M60 34C57 24 34 25 34 39C34 53 62 43 62 58C62 72 37 72 34 61 M48 21V77" stroke="#020d1d" stroke-opacity=".8" stroke-width="2.2" transform="translate(0 1.2)"/>
+      <path d="M34 17C9 28 9 68 34 79 M62 17C87 28 87 68 62 79 M60 34C57 24 34 25 34 39C34 53 62 43 62 58C62 72 37 72 34 61 M48 21V77" stroke="url(#etched)" stroke-width="1.25"/>
+    </g>
+    <g clip-path="url(#coin8)">
+      <circle r="95.41" fill="url(#faceLight)"/>
+      <ellipse cx="-24.36" cy="-75.11" rx="115.71" ry="58.87" transform="rotate(-24)" fill="url(#gloss)" opacity=".3"/>
+    </g>
+    <circle r="94.801" stroke="url(#rim)" stroke-width="1.5"/>
+    <path d="M-85.25999999999999 -44.660000000000004 A96.83099999999999 96.83099999999999 0 0 1 46.690000000000005 -84.24499999999999" stroke="#eefaff" stroke-opacity=".8" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+<g transform="translate(1170 736) rotate(14) scale(1 .94)" opacity="1">
+    <defs><clipPath id="coin9"><circle r="99.51"/></clipPath></defs>
+    <circle cy="18" r="98.44" fill="#020c1b" opacity=".6" filter="url(#shadow)"/>
+    <circle cy="7" r="102.72" fill="url(#edge)" stroke="#87b3bc" stroke-opacity=".45"/>
+    <circle r="102.72" fill="url(#rim)"/>
+    <circle r="99.51" fill="url(#coinSurface)"/>
+    <g transform="translate(-81.32000000000001 -81.32000000000001) scale(1.6941666666666668)" fill="none" stroke-linecap="round">
+      <path d="M34 17C9 28 9 68 34 79 M62 17C87 28 87 68 62 79 M60 34C57 24 34 25 34 39C34 53 62 43 62 58C62 72 37 72 34 61 M48 21V77" stroke="#020d1d" stroke-opacity=".8" stroke-width="2.2" transform="translate(0 1.2)"/>
+      <path d="M34 17C9 28 9 68 34 79 M62 17C87 28 87 68 62 79 M60 34C57 24 34 25 34 39C34 53 62 43 62 58C62 72 37 72 34 61 M48 21V77" stroke="url(#etched)" stroke-width="1.25"/>
+    </g>
+    <g clip-path="url(#coin9)">
+      <circle r="100.58" fill="url(#faceLight)"/>
+      <ellipse cx="-25.68" cy="-79.17999999999999" rx="121.97999999999999" ry="62.059999999999995" transform="rotate(-24)" fill="url(#gloss)" opacity=".3"/>
+    </g>
+    <circle r="99.938" stroke="url(#rim)" stroke-width="1.5"/>
+    <path d="M-89.88 -47.08 A102.07799999999999 102.07799999999999 0 0 1 49.22 -88.81" stroke="#eefaff" stroke-opacity=".8" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+<ellipse cx="960" cy="1024" rx="210" ry="125" fill="url(#atmosphere)"/>
+<svg x="866" y="906" width="188" height="133" viewBox="94 165 544 385"><path d="M361.5 176H370.5L385.5 300Q388 322 410 313L622 225L627 234L438 345Q414 358 438 372L627 482L622 490L410 401Q388 392 385.5 415L370.5 540H361.5L346.5 415Q344 392 322 401L110 490L105 482L294 372Q318 358 294 345L105 234L110 225L322 313Q344 322 346.5 300Z" fill="url(#silver)"/></svg>
+</svg>

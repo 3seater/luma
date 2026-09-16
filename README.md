@@ -4,12 +4,12 @@ USDC on Arc, shared through a private claim link. Adapted from [3seater/Beam](ht
 
 ## What changed
 
-- USDC only, one Arc network per deployment. No stocks, token picker, swaps, Spectrum bundles, fiat checkout, or legacy Robinhood addresses.
+- USDC only, one Arc network per deployment. No stocks, multi-asset selection, swaps, bundles, fiat checkout, or legacy network addresses.
 - Beam's landing structure, preview card, three-step flow, FAQ and escrow model remain the design starting point. Navy, steel blue, sea-glass and sand replace the sky-blue palette, using the supplied Arc artwork as a reference.
 - Product name: **Luma**. This is an independent app, not an official Arc or Circle service.
-- Wallet connection via wagmi; injected wallets work without API credentials. Optional WalletConnect enables QR/mobile connections. Privy and embedded/social wallets are removed.
+- Privy wallet connection and social sign-in, embedded receiving wallets, funded sponsored claims, and encrypted Supabase link recovery.
 - A new native-USDC escrow with recipient/chain/contract/deposit-bound signatures, explicit claim/cancellation status, reentrancy protection, and no admin or application fees.
-- New send, claim, history/recovery, docs, privacy and terms pages. Legacy app code, endpoints, deployment scripts, assets and generated marketing content were removed; they remain in Git history.
+- Luma send, claim, history/recovery, docs, privacy and terms pages. Some internal route, storage and encryption-variable names retain Beam compatibility; these are not product branding.
 
 ## Required technology
 
@@ -17,13 +17,14 @@ USDC on Arc, shared through a private claim link. Adapted from [3seater/Beam](ht
 | --- | --- | --- |
 | Web app | Next.js 14, React 18, TypeScript | Retains Beam's framework |
 | Wallet and RPC | wagmi 2, viem 2, TanStack Query | EVM wallet connections and typed contract calls |
-| Wallet transports | Injected wallet; optional WalletConnect | No hosted-auth account required |
+| Authentication and wallets | Privy React SDK and wagmi adapter | External wallet connection, social sign-in and embedded receiving wallets |
 | Escrow | Solidity 0.8.28, OpenZeppelin 5 | Native USDC deposits, signed claims, sender cancellation |
 | Contract tests | solc + Ganache via Node | Compile and exercise contract behavior without Foundry |
-| Storage | Browser local history, tab session recovery | No backend or database needed for the core flow |
-| Hosting | Any Next.js-compatible host | No production server secrets required for core app |
+| Storage | Supabase, local history and tab recovery | Encrypted cross-device link backups and durable relay coordination |
+| Hosting | Next.js-compatible server host | Runs backup and authenticated claim-relay endpoints |
+| Claim sponsorship | Dedicated funded EVM relayer | Pays recipient claim gas, with durable retries and budgets |
 
-No bridge, swap aggregator, price feed, Stripe, Supabase, or Circle App Kit is needed for this Arc-only flow. A recipient currently pays the claim transaction fee from their own USDC balance. A future funded relayer can sponsor the same recipient-bound signature without changing the escrow.
+No bridge, swap aggregator, price feed, Stripe or Circle App Kit is needed. Privy, Supabase and a funded relayer are part of this implementation. See [service setup](docs/service-setup.md) for credentials, migrations and validation.
 
 ## Run locally
 
@@ -35,7 +36,7 @@ cp .env.local.example .env.local
 pnpm dev
 ```
 
-Open http://localhost:3000. The full UI works without credentials; sending and claiming remain unavailable until a real escrow address is configured. Do not substitute Beam's old deployed contract address.
+Open http://localhost:3000. The public UI can be previewed without credentials. Wallet connection requires a Privy app ID; live sending requires a deployed escrow; recovery and sponsored claims require their backend services. Do not substitute Beam's old deployed contract address.
 
 ```sh
 pnpm typecheck
@@ -77,18 +78,18 @@ Set the returned address as `NEXT_PUBLIC_ARC_ESCROW_ADDRESS`, restart/rebuild th
 1. Browser generates a random secp256k1 private key and deposits native USDC with its signer address.
 2. Only after a successful matching `Deposited` receipt does it produce `/claim#v=1&chain=5042&escrow=0x…&id=…&key=…`.
 3. Recipient's browser signs `keccak256(abi.encode(chainId, escrow, depositId, recipient))` using EIP-191 and the link key.
-4. A wallet submits that signature. The escrow pays only the signed recipient, once. Cancel returns the principal to the sender while pending.
+4. After Privy sign-in, the authenticated relay submits the signature for the recipient’s embedded wallet and pays claim gas. The escrow pays only the signed recipient, once. Cancellation returns the principal to the sender while pending.
 
-The complete link is a bearer secret. Fragments are not sent in HTTP requests, but page JavaScript, extensions, screenshots, clipboard software and anyone receiving the link can read them. There are no analytics scripts or server backups. Referrer policy is `no-referrer`.
+The complete link is a bearer secret. Fragments are not sent in HTTP requests, but page JavaScript, extensions, screenshots, clipboard software and anyone receiving the link can read them. The browser intentionally sends the secret fragment to the first-party backup endpoint after deposit confirmation. It is encrypted before Supabase storage; the backend holds the decryption key. Public history omits secrets and recovery requires the sending wallet’s signature. No separate application analytics is configured; provider telemetry is separate. Referrer policy is `no-referrer`.
 
-The latest sender key/transaction is kept in tab-scoped `sessionStorage` before requesting a deposit; a timed-out receipt can be recovered without another deposit. Closing the tab, clearing storage, or starting another send removes this recovery path. Save the full link separately. Browser history stores public IDs, not claim keys. A sender can look up an ID from the deposit transaction receipt and cancel from another browser even after losing the secret. Link metadata is bound to its network and escrow, and old Beam links are not supported.
+The latest sender key/transaction is kept in tab-scoped `sessionStorage` before requesting a deposit; a timed-out receipt can be recovered without another deposit. Closing the tab, clearing storage, or starting another send removes this recovery path. Save the full link separately if backup fails. Successful encrypted backups can be recovered on another device by signing with the same sending wallet. Local deposit history stores public IDs, not claim keys. A sender can look up an ID from the deposit transaction receipt and cancel from another browser even after losing the secret. Link metadata is bound to its network and escrow, and old Beam links are not supported.
 
 ## Remaining release work
 
 - Deploy and verify a fresh escrow on the intended Arc network; perform Arc-specific testnet wallet checks (native decimal handling, gas floor, blocklisted transfers, RPC receipt behavior).
 - Review and audit the contract independently. Local EVM tests are not an audit and do not emulate all Arc runtime differences.
-- Choose the final name/domain, configure an optional WalletConnect project, and review operator-specific privacy/terms copy.
-- If gasless claiming is required: add a funded relayer with durable rate limits, idempotency, strict recipient/signature validation, gas budgets, and monitoring. This build does not promise sponsored claims.
+- Configure the production domain and Privy allowed origins. Supply the operator identity, privacy contact, retention/deletion process and deployment-specific provider details before publishing a final production privacy policy.
+- Configure Supabase migrations, backup encryption and a funded relayer. Verify new-user sponsored claims, cross-device recovery, failure handling and operational monitoring on the intended deployment.
 
 ## References
 

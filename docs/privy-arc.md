@@ -13,7 +13,7 @@ Privy's React documentation explicitly supports any chain with EVM RPC requests,
 - Sender connects an existing wallet or signs in through Privy, selects USDC, enters an amount, reviews a glass receipt, and confirms the deposit.
 - Recipient opens the link, signs in, gets an embedded EVM wallet if needed, and claims to that wallet.
 - Use normal EOAs first. ERC-4337 smart accounts, bundlers and paymasters require additional Arc infrastructure and verification.
-- A new embedded wallet has no gas. Current claims require USDC for fees; frictionless new-user claims need a funded relayer or separately verified Arc gas sponsorship.
+- A new embedded wallet has no gas. Luma’s implemented relay pays the claim fee when configured and funded. A new recipient does not need initial USDC; later outgoing transfers require gas.
 
 ## Integration configuration
 
@@ -25,8 +25,8 @@ Use `@privy-io/react-auth` plus `@privy-io/wagmi` to synchronize embedded and ex
   config={{
     defaultChain: arc,
     supportedChains: [arc],
-    loginMethods: ['email', 'google', 'wallet'],
-    embeddedWallets: { ethereum: { createOnLogin: 'users-without-wallets' } },
+    loginMethods: ['apple', 'google', 'twitter', 'wallet'],
+    embeddedWallets: { ethereum: { createOnLogin: 'all-users' } },
     appearance: { theme: 'light', accentColor: '#254c6c', walletChainType: 'ethereum-only' },
   }}
 >

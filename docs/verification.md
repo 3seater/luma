@@ -22,3 +22,9 @@ Restored Beam-style floating glass navigation, token → amount → review scree
 Browser checks passed on desktop and mobile in preview mode: official USDC SVG loads, the send wizard advances, zero amounts are rejected, review displays the amount, Back preserves it, mobile has no horizontal overflow, and the navigation menu closes with Escape. No page errors were observed. Screenshots were inspected.
 
 The earlier local injected-wallet end-to-end harness could not be reused after concurrent changes replaced that connection path with Privy-only auth. The historical successful transaction tests above predate that integration. This UI pass does not establish working Privy login or sponsored claims; those require configured integration tests.
+
+## Local origin and server connectivity fix
+
+A real send succeeded, but its backup and subsequent claim requests were blocked by a localhost/127.0.0.1 origin mismatch. Both endpoints now use the actual loopback Host during development, including the origin in recovery signatures. Production origin handling is unchanged; arbitrary hosts are not accepted. A regression test covers allowed loopback handling and hostile host rejection.
+
+The prior development process also could not reach Supabase. Replaced it with a network-enabled local server on port 3000. Verified backup GET returns 200; valid-origin claim POST reaches authentication (401 with no token); unrelated origins return 403 on both endpoints. All 25 application tests and lint pass. Actual saved-link retry and authenticated claim still need user verification; no additional deposit or claim transaction was submitted by these checks.

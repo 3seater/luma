@@ -7,7 +7,9 @@ import { arc, transactionUrl } from '@/lib/arc';
 import { arcFees, userError } from '@/lib/transactions';
 import { parseAmount } from '@/lib/links';
 import { useAuth } from './Auth';
-export function ReceivingWallet({ address }: { address: Address }) {
+import { UsdcCoin } from './Shell';
+import { Copy, Check, RefreshCw, ArrowUpRight, KeyRound } from 'lucide-react';
+export function ReceivingWallet({ address, defaultOpen = false }: { address: Address; defaultOpen?: boolean }) {
   const auth = useAuth();
   const { wallets } = useWallets();
   const wallet = wallets.find(item => item.address.toLowerCase() === address.toLowerCase());
@@ -39,11 +41,21 @@ export function ReceivingWallet({ address }: { address: Address }) {
       setConfirmed(true); await balance.refetch();
     } catch (e) { setError(userError(e)); } finally { setBusy(false); }
   }
-  return <details className="receipt-wallet-details"><summary>Your wallet & next steps</summary><div className="receipt-wallet-content">
-    <p className="small">Your wallet on {arc.name}</p><p className="small" style={{ overflowWrap: 'anywhere' }}>{address}</p>
-    <button className="button secondary" onClick={async () => { try { await navigator.clipboard.writeText(address); setCopied(true); } catch { setError('Could not copy. Select the address above.'); } }}>{copied ? 'Copied' : 'Copy address'}</button>
-    <p>{balance.data ? `${formatUnits(balance.data.value, 18)} USDC` : 'Loading balance…'}</p>
-    {wallet && <><label className="field-label" htmlFor="withdraw-address">Send to a wallet on Arc</label><input className="standard" id="withdraw-address" value={destination} onChange={event => setDestination(event.target.value)} placeholder="0x…" /><label className="field-label" htmlFor="withdraw-amount">Amount in USDC</label><input className="standard" id="withdraw-amount" inputMode="decimal" value={amount} onChange={event => setAmount(event.target.value)} /><button className="button full" disabled={busy} onClick={send}>{busy ? 'Sending…' : 'Send to wallet'}</button><p className="small">Use an address that accepts USDC on Arc. Network fees apply to this transfer.</p><button className="button secondary full" onClick={async () => { try { await auth.exportWallet(); } catch { setError('Could not open wallet export.'); } }}>Use in another wallet</button></>}
+  const content = <div className="wallet-panel">
+    <section className="wallet-balance-panel" aria-label="USDC balance">
+      <div className="wallet-asset-heading"><UsdcCoin /><div><strong>USDC</strong><span>{arc.name}</span></div><button className="wallet-icon-button" aria-label="Refresh balance" title="Refresh balance" disabled={balance.isFetching} onClick={() => balance.refetch()}><RefreshCw size={17} /></button></div>
+      <div className="wallet-balance-value" aria-live="polite">{balance.data ? <><span>{formatUnits(balance.data.value, 18)}</span><small>USDC</small></> : <small>{balance.isError ? 'Balance unavailable' : 'Loading balance…'}</small>}</div>
+      <div className="wallet-address-row"><code title={address}>{address}</code><button className="wallet-icon-button" aria-label={copied ? 'Address copied' : 'Copy wallet address'} title="Copy address" onClick={async () => { try { await navigator.clipboard.writeText(address); setCopied(true); } catch { setError('Could not copy. Select the address above.'); } }}>{copied ? <Check size={16} /> : <Copy size={16} />}</button></div>
+    </section>
+    {wallet && <section className="wallet-transfer-panel" aria-labelledby="wallet-transfer-title">
+      <h2 id="wallet-transfer-title">Send USDC</h2>
+      <div className="wallet-form-field"><label htmlFor="withdraw-address">Recipient address</label><input className="standard" id="withdraw-address" autoComplete="off" spellCheck={false} value={destination} onChange={event => setDestination(event.target.value)} placeholder="0x…" /></div>
+      <div className="wallet-form-field"><label htmlFor="withdraw-amount">Amount</label><div className="wallet-amount-input"><input id="withdraw-amount" inputMode="decimal" autoComplete="off" placeholder="0.00" value={amount} onChange={event => setAmount(event.target.value)} /><span><UsdcCoin />USDC</span></div></div>
+      <button className="button full" disabled={busy} onClick={send}>{busy ? 'Sending…' : 'Send USDC'}<ArrowUpRight size={17} /></button>
+      <p className="wallet-transfer-note">Arc addresses only. Leave USDC for the network fee.</p>
+    </section>}
+    {wallet && <div className="wallet-export-row"><button onClick={async () => { try { await auth.exportWallet(); } catch { setError('Could not open wallet export.'); } }}><KeyRound size={16} />Export wallet<ArrowUpRight size={15} /></button></div>}
     {confirmed && <p role="status">USDC sent.</p>}{hash && <a href={transactionUrl(hash)} target="_blank" rel="noreferrer" className="text-link">View transfer ↗</a>}{error && <p className="error" role="alert">{error}</p>}
-  </div></details>;
+  </div>;
+  return defaultOpen ? content : <details className="receipt-wallet-details"><summary>Your wallet</summary>{content}</details>;
 }

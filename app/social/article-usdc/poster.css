@@ -1,0 +1,9 @@
+body:has(.article-banner-page) { background:#06162b; }
+body:has(.article-banner-page) .frost-header,body:has(.article-banner-page) .premium-footer { display:none; }
+.article-banner-page { min-height:100vh; }
+.article-banner-art { width:100%; }
+.article-banner-art>svg { display:block; width:100%; height:auto; }
+.article-banner-native .article-banner-art { width:2400px; }
+.article-banner-tools { display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px; padding:28px 32px; font-size:13px; color:#87b3bc; }
+.article-banner-tools a { color:#eef4f5; }
+.article-banner-native .article-banner-tools { display:none; }

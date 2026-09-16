@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { arc, escrowAddress } from '@/lib/arc';
 import { parseRelayPayload } from '@/lib/relay-payload';
 import { relayClaim, relayConfigured, verifyRecipient } from '@/lib/relay-server';
+import { requestOrigin } from '@/lib/request-origin';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 export const maxDuration = 60;
@@ -9,7 +10,8 @@ const reply = (body: unknown, status = 200) => NextResponse.json(body, { status,
 export async function GET() { return reply({ available: relayConfigured() }); }
 export async function POST(request: NextRequest) {
   if (!relayConfigured()) return reply({ error: 'Sponsored claims are being set up. Please try again later.' }, 503);
-  if (request.headers.get('origin') !== request.nextUrl.origin) return reply({ error: 'Invalid request origin.' }, 403);
+  const origin = requestOrigin(request.nextUrl.origin, request.headers.get('host'), process.env.NODE_ENV === 'development');
+  if (request.headers.get('origin') !== origin) return reply({ error: 'Invalid request origin.' }, 403);
   const authorization = request.headers.get('authorization') || '';
   if (!authorization.startsWith('Bearer ') || authorization.length > 8192) return reply({ error: 'Please sign in again.' }, 401);
   let data;

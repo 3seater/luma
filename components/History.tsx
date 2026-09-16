@@ -6,6 +6,8 @@ import { arc, escrowAddress, escrowAbi, type Deposit, transactionUrl } from '@/l
 import { readHistory } from '@/lib/history';
 import { verifyEscrow, userError, arcFees } from '@/lib/transactions';
 import { Wallet } from './Wallet';
+import { UsdcCoin } from './Shell';
+import { Check, ChevronDown, Clock, Copy, ExternalLink, RefreshCw, Search, Wallet as WalletIcon, X } from 'lucide-react';
 import Link from 'next/link';
 import { recoveryMessage } from '@/lib/backup-auth';
 import { parseLink } from '@/lib/links';
@@ -96,16 +98,41 @@ export function History() {
       setRefresh(value => value + 1);
     } catch (e) { setError(userError(e)); } finally { setBusy(''); lock.current = false; }
   }
-  return <main className="flow-page"><div className="flow-heading"><span className="eyebrow">EVERY LITTLE CONNECTION</span><h1>Your links.</h1><p>See what’s been claimed. Take back what hasn’t.</p></div><div className="flow-card history-wide">
-    {!address ? <div className="center"><h2>Connect your sending wallet.</h2><p className="small">Your links are tied to the wallet that created them.</p><Wallet /></div> : <>
-      <p className="small">Your saved links, on any device. Use the same sending wallet to recover a private link. Status is read from Arc.</p>
-      <button className="button secondary full" disabled={!!busy || !escrowAddress} onClick={recover}>Recover my links</button>
-      {Object.entries(links).filter(([id]) => items[id]?.status === 1).map(([id, link]) => <div key={id} className="history-item"><label className="field-label" htmlFor={`recovered-${id}`}>Private link #{id}</label><textarea id={`recovered-${id}`} className="link-output" readOnly value={link} rows={3} /><button className="button full" onClick={async () => { try { await navigator.clipboard.writeText(link); setCopied(id); } catch { setError('Select and copy the link above.'); } }}>{copied === id ? 'Link copied' : 'Copy recovered link'}</button></div>)}
+  return <main className="flow-page lumas-page"><div className="lumas-wrap">
+    <header className="lumas-heading"><Clock size={24} aria-hidden="true" /><h1>Your Lumas</h1></header>
+    {!address ? <div className="lumas-panel lumas-connect"><span className="lumas-wallet-icon"><WalletIcon size={28} aria-hidden="true" /></span><div><h2>Connect your wallet</h2><p>Connect to see the Lumas you&apos;ve sent.</p></div><Wallet /></div> : <div className="lumas-panel">
+      <div className="lumas-toolbar" role="group" aria-label="Luma history actions">
+        <button disabled={!!busy || !escrowAddress} onClick={recover}><Copy size={15} />Restore my links</button>
+        <button disabled={!!busy} onClick={() => { setError(''); setRefresh(value => value + 1); }}><RefreshCw size={15} />Refresh</button>
+      </div>
       {!escrowAddress && <p className="notice">The Arc escrow has not been configured yet.</p>}
-      <div className="history-list">{ids.map(id => items[id] && <div className="history-item" key={id}><div className="detail-row"><span>LINK #{id}</span><strong>{['Unknown', 'Unclaimed', 'Claimed', 'Cancelled'][items[id].status]}</strong></div><h3>{formatUnits(items[id].amount, 18)} USDC</h3><p className="small">{new Date(Number(items[id].createdAt) * 1000).toLocaleDateString()}</p>{items[id].status === 1 && <button className="button secondary" disabled={!!busy} onClick={() => cancel(id)}>Cancel & recover USDC</button>}</div>)}</div>
-      {ids.length === 0 && <p className="empty-state">No links saved in this browser yet.<br /><Link href="/send" className="text-link">Create your first link ↗</Link></p>}
-      <label htmlFor="deposit-id" className="field-label">Recover a deposit from another browser</label><input id="deposit-id" className="standard" inputMode="numeric" value={lookup} onChange={e => setLookup(e.target.value)} placeholder="Deposit ID from your transaction receipt" /><button className="button secondary full" disabled={!!busy || !escrowAddress} onClick={findDeposit}>Look up deposit</button><button className="text-link" disabled={!!busy} onClick={() => { setError(''); setRefresh(value => value + 1); }}>Refresh statuses</button>
-    </>}
+      <div className="lumas-list">{ids.map(id => {
+        const item = items[id];
+        if (!item) return null;
+        const amount = formatUnits(item.amount, 18);
+        const date = new Date(Number(item.createdAt) * 1000);
+        const minutes = Math.max(0, Math.floor((Date.now() - date.getTime()) / 60000));
+        const age = minutes < 1 ? 'just now' : minutes < 60 ? `${minutes}m ago` : minutes < 1440 ? `${Math.floor(minutes / 60)}h ago` : `${Math.floor(minutes / 1440)}d ago`;
+        return <div className="luma-row" key={id}>
+          <div className="luma-info"><UsdcCoin /><span className={`luma-amount${item.status === 3 ? ' cancelled' : ''}`} title={`${amount} USDC`}>{amount} USDC</span><span className="luma-usd">${amount}</span>
+            <span className="luma-actions">{item.status === 1 && links[id] && <>
+              <button aria-label={copied === id ? `Copied Luma ${id} link` : `Copy Luma ${id} link`} title="Copy link" onClick={async () => { try { await navigator.clipboard.writeText(links[id]); setCopied(id); } catch { setError('Could not copy your link. Please try again.'); } }}>{copied === id ? <Check size={10} /> : <Copy size={10} />}</button>
+              <a href={links[id]} target="_blank" rel="noopener noreferrer" aria-label={`Open Luma ${id} claim page`} title="Open claim page"><ExternalLink size={10} /></a>
+            </>}</span>
+          </div>
+          <div className="luma-meta"><span className="luma-status-slot"><span className={`luma-status status-${item.status}`}>{item.status === 2 && <Check size={9} />}{['Unavailable', 'Pending', 'Claimed', 'Cancelled'][item.status]}</span></span><span className="luma-cancel">{item.status === 1 && <button disabled={!!busy} onClick={() => cancel(id)} aria-label={`Cancel Luma ${id} and recover USDC`} title="Cancel and recover USDC"><X size={10} /></button>}</span><time dateTime={date.toISOString()} title={date.toLocaleString()}>{age}</time></div>
+        </div>;
+      })}</div>
+      {ids.length === 0 && !busy && <p className="lumas-empty">No saved Lumas found. <Link href="/send">Send your first Luma ↗</Link></p>}
+      <details className="lumas-recovery">
+        <summary><span>Missing a Luma?</span><ChevronDown size={15} aria-hidden="true" /></summary>
+        <div className="lumas-recovery-body">
+          <p>Restore your links with the same sending wallet, or find a deposit using the ID on your receipt.</p>
+          <label htmlFor="deposit-id">Deposit ID</label>
+          <div className="lumas-lookup"><input id="deposit-id" inputMode="numeric" value={lookup} onChange={e => setLookup(e.target.value)} placeholder="Enter deposit ID" /><button disabled={!!busy || !escrowAddress} onClick={findDeposit}><Search size={14} aria-hidden="true" />Look up</button></div>
+        </div>
+      </details>
+    </div>}
     {busy && <p className="progress" role="status">{busy}</p>}{error && <p className="error" role="alert">{error}</p>}{lastTx && <div><a className="text-link" href={transactionUrl(lastTx)} target="_blank" rel="noreferrer">View transaction ↗</a></div>}
   </div></main>;
 }

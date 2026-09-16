@@ -1,0 +1,32 @@
+/* Approved Luma design reference. See docs/graphics-style-guide.md. */
+body:has(.luma-docs-poster) { margin:0; background:#06162b; }
+body:has(.luma-docs-poster) .glass-header,
+body:has(.luma-docs-poster) .frost-header,
+body:has(.luma-docs-poster) .premium-header,
+body:has(.luma-docs-poster) .premium-footer { display:none; }
+.luma-docs-poster { width:100%; min-height:100vh; overflow:hidden; }
+.luma-docs-artboard { position:relative; isolation:isolate; width:1920px; height:1080px; overflow:hidden; color:#eef4f5; background:linear-gradient(180deg,#06162b 0%,#173a55 38%,#254c6c 60%,#87b3bc 91%,#dfcca1 100%); }
+.luma-docs-curves { position:absolute; inset:0; z-index:-1; overflow:hidden; }
+.luma-docs-curves i { position:absolute; width:1980px; height:2040px; border-radius:50%; border:114px solid #ffffff06; top:-1224px; left:-924px; }
+.luma-docs-curves i:nth-child(2) { width:2400px; height:2460px; top:-1380px; left:-1032px; }
+.luma-docs-curves i:nth-child(3) { width:2820px; height:2880px; top:-1536px; left:-1140px; }
+.luma-docs-brand { position:absolute; left:96px; top:80px; display:flex; align-items:center; gap:16px; font-size:59px; font-weight:450; letter-spacing:-3px; }
+.luma-docs-brand svg { width:76px; height:64px; }
+.luma-docs-headline { position:absolute; left:96px; top:312px; margin:0; font-size:166px; font-weight:300; line-height:1.02; letter-spacing:-9.6px; }
+.luma-docs-labels { position:absolute; left:96px; bottom:94px; display:flex; gap:20px; }
+.luma-docs-labels a { display:flex; align-items:center; gap:28px; padding:20px 25px; border:1px solid #eef4f580; border-radius:19px; color:#06162b; background:#eef4f526; font-size:26px; letter-spacing:-.6px; }
+.luma-docs-window { position:absolute; left:842px; top:166px; width:1120px; height:1200px; transform:rotate(-7deg); transform-origin:center; overflow:hidden; border:1px solid #eef4f5b3; border-radius:29px; background:#f5f8f8; color:#173449; box-shadow:-22px 36px 90px -24px #06162b66,0 0 0 8px #eef4f51a; }
+.luma-docs-chrome { height:65px; padding:0 29px; display:flex; align-items:center; gap:14px; background:#edf3f2; border-bottom:1px solid #254c6c20; color:#547084; font-size:19px; }
+.luma-docs-chrome>svg:first-child { width:30px; height:24px; color:#254c6c; }
+.luma-docs-chrome>svg:last-child { margin-left:auto; }
+.luma-docs-slash { padding:0 7px; color:#8da8b2; }
+.luma-docs-surface { pointer-events:none; }
+.luma-docs-surface .luma-docs-root { height:1200px; }
+.luma-docs-surface .luma-docs-sidebar { width:250px; }
+.luma-docs-surface .luma-docs-reader { overflow:hidden; }
+.luma-docs-surface .luma-docs-content { padding:45px 44px 100px; }
+.luma-docs-surface .luma-docs-topline { padding:0 44px; }
+@media(max-width:1919px) { .luma-docs-artboard { zoom:calc(100vw / 1920px); } }
+.luma-docs-native .luma-docs-artboard { zoom:1; }
+.luma-docs-native { overflow:auto; }
+@media print { @page { size:1920px 1080px; margin:0; } .luma-docs-artboard { zoom:1; print-color-adjust:exact; } }

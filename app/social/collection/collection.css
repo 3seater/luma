@@ -1,0 +1,59 @@
+body:has(.kit-page) { background:#06162b; }
+body:has(.kit-page) .frost-header,body:has(.kit-page) .premium-footer { display:none; }
+.kit-page { padding:40px 32px 64px; color:#eef4f5; }
+.kit-toolbar { display:flex; justify-content:space-between; align-items:center; gap:24px; margin-bottom:40px; }
+.kit-toolbar span { font-size:10px; letter-spacing:2px; color:#87b3bc; }
+.kit-toolbar h1 { font-size:28px; font-weight:400; letter-spacing:-1px; margin-top:10px; }
+.kit-toolbar>a { display:flex; gap:12px; align-items:center; font-size:12px; color:#b9d2d7; }
+.kit-gallery { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:36px 24px; }
+.kit-item { min-width:0; }.kit-item-label { display:flex; justify-content:space-between; gap:16px; margin-bottom:12px; font-size:12px; color:#a7c2cd; }
+.kit-stage { container-type:inline-size; aspect-ratio:16/9; overflow:hidden; }
+.kit-artboard { position:relative; isolation:isolate; width:1920px; height:1080px; overflow:hidden; zoom:calc(100cqw / 1920px); background:linear-gradient(180deg,#06162b 0%,#173a55 38%,#254c6c 60%,#87b3bc 91%,#dfcca1 100%); color:#eef4f5; }
+.kit-curves { position:absolute; inset:0; z-index:-1; overflow:hidden; }.kit-curves i { position:absolute; width:1980px; height:2040px; border-radius:50%; border:114px solid #ffffff06; top:-1224px; left:-924px; }.kit-curves i:nth-child(2) { width:2400px; height:2460px; top:-1380px; left:-1032px; }.kit-curves i:nth-child(3) { width:2820px; height:2880px; top:-1536px; left:-1140px; }
+.kit-brand { position:absolute; left:96px; top:80px; display:flex; align-items:center; gap:16px; font-size:59px; font-weight:450; letter-spacing:-3px; }.kit-brand svg { width:76px; height:64px; }
+.kit-artboard>h2 { position:absolute; left:96px; top:316px; font-size:142px; line-height:1.04; letter-spacing:-8px; font-weight:300; margin:0; z-index:3; }
+.kit-subtitle { position:absolute; left:101px; top:648px; font-size:29px; letter-spacing:-.5px; color:#d1e1e5; max-width:650px; line-height:1.5; z-index:3; }
+.kit-identities { position:absolute; left:96px; bottom:94px; display:flex; gap:20px; z-index:5; }.kit-identities a { display:flex; align-items:center; gap:28px; padding:20px 25px; border:1px solid #eef4f580; border-radius:19px; color:#06162b; background:#eef4f526; font-size:26px; letter-spacing:-.6px; }
+.kit-tile { position:absolute; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:24px; border:2px solid #eef4f5aa; border-radius:54px; background:linear-gradient(140deg,#f3f9faed,#b6d2d5c9 65%,#dfcca1b8); box-shadow:-15px 25px 60px #06162b26,inset 0 0 0 6px #ffffff18; color:#254c6c; }
+.kit-tile .usdc-coin { display:block; width:70%; height:70%; background:none; box-shadow:none; }.kit-tile .usdc-coin img { width:100%; height:100%; }
+.coin-main { width:510px; height:550px; left:1150px; top:275px; transform:rotate(-12deg); }.coin-small { width:205px; height:220px; left:929px; top:670px; transform:rotate(13deg); border-radius:35px; }.coin-back { width:230px; height:245px; left:1630px; top:170px; transform:rotate(12deg); border-radius:35px; }
+.kit-network { position:absolute; left:1220px; top:869px; display:flex; align-items:center; gap:13px; font-size:28px; color:#173449; }.kit-network>span { width:10px; height:10px; border-radius:50%; background:#254c6c; }
+.kit-send>h2 { top:235px; font-size:113px; }.kit-send>.kit-subtitle { top:382px; }
+.kit-flow,.kit-share-line,.kit-recovery-lines { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+.kit-receipt { position:absolute; left:1060px; top:270px; width:650px; transform:rotate(-9deg); }
+.kit-artboard .luma-gift-card { width:100%; min-height:455px; padding:42px; border-radius:35px; border:2px solid #eef4f5cb; background:linear-gradient(130deg,#f4faf9,#bed8db 67%,#dfcca1); box-shadow:-14px 28px 60px #06162b33,inset 0 0 0 5px #ffffff24; color:#254c6c; }
+.kit-artboard .gift-top { display:flex; justify-content:space-between; align-items:center; font-size:23px; }.kit-artboard .gift-top>span { display:flex; align-items:center; gap:10px; }.kit-artboard .gift-top svg { width:25px; height:25px; }
+.kit-artboard .gift-value { font-size:112px; line-height:1.2; letter-spacing:-6px; margin:40px 0 22px; font-weight:350; }.kit-artboard .gift-value>span { font-size:28px; letter-spacing:-1px; }
+.kit-artboard .gift-token { display:flex; align-items:center; gap:12px; width:fit-content; padding:10px 16px; background:#ffffff60; border-radius:28px; font-size:22px; }.kit-artboard .gift-token .usdc-coin,.kit-artboard .gift-token img { width:30px; height:30px; }
+.kit-artboard .gift-bottom { display:flex; justify-content:space-between; font-size:17px; margin-top:46px; }.kit-artboard .gift-bottom>span { display:flex; align-items:center; gap:7px; }
+.kit-send-coin { position:absolute; top:633px; left:560px; width:195px; height:195px; border-radius:50%; background:#eef4f5; padding:23px; box-shadow:0 25px 50px #06162b26; }.kit-send-coin .usdc-coin,.kit-send-coin img { width:100%; height:100%; }
+.kit-link { display:flex; align-items:center; gap:24px; padding:28px 32px; border-radius:24px; border:1px solid #fff; background:linear-gradient(120deg,#f5fafa,#d9e9e8); color:#416b80; box-shadow:0 18px 45px #06162b18; font-size:30px; white-space:nowrap; }.kit-link>svg { width:30px; height:30px; }.kit-link>svg:last-child { margin-left:14px; }
+.kit-send-link { position:absolute; left:1240px; top:745px; transform:rotate(4deg); }.kit-step-caption { position:absolute; top:870px; left:960px; color:#173449; font-size:24px; }
+.kit-share>h2 { font-size:122px; }.kit-share>.kit-subtitle { top:615px; }
+.kit-share-card { position:absolute; top:230px; left:1110px; width:570px; transform:rotate(9deg); }.kit-share-card .luma-gift-card { min-height:420px; }
+.kit-message { position:absolute; left:925px; top:648px; width:710px; background:#eef5f4e8; border:2px solid #fff; border-radius:35px 35px 35px 6px; padding:32px; box-shadow:-12px 25px 60px #06162b30; transform:rotate(-6deg); z-index:2; }.kit-message-top { display:flex; align-items:center; gap:16px; color:#254c6c; font-size:27px; margin-bottom:25px; }.kit-message .kit-link { font-size:27px; box-shadow:none; padding:22px; }.kit-private { position:absolute; left:1260px; top:916px; display:flex; gap:13px; align-items:center; color:#173449; font-size:23px; }.kit-share-line { z-index:-1; }
+.kit-claim>h2 { font-size:130px; }.kit-claim>.kit-subtitle { top:625px; max-width:620px; }
+.kit-claim-receipt { position:absolute; top:300px; left:1100px; width:640px; transform:rotate(-7deg); }.kit-claim-orbit { position:absolute; left:810px; top:230px; width:1000px; height:650px; border:2px solid #ffffff30; border-radius:50%; transform:rotate(-26deg); }
+.kit-claim-coin { position:absolute; left:875px; top:295px; width:175px; height:175px; transform:rotate(-18deg); }.kit-claim-coin .usdc-coin,.kit-claim-coin img { width:100%; height:100%; }
+.kit-check { position:absolute; left:1580px; top:670px; display:grid; place-items:center; width:140px; height:140px; border:2px solid #ffffffb0; border-radius:50%; background:linear-gradient(140deg,#edf7f0,#91bcb5); color:#254c6c; box-shadow:0 20px 40px #06162b20; }.kit-wallet-note { position:absolute; top:855px; left:1130px; display:flex; gap:15px; align-items:center; font-size:25px; color:#173449; }
+.kit-recover>h2 { font-size:133px; }.kit-recover>.kit-subtitle { top:635px; max-width:580px; }
+.kit-laptop { left:875px; top:310px; width:410px; height:330px; transform:rotate(-10deg); border-radius:36px; font-size:24px; }.kit-phone { left:1510px; top:285px; width:275px; height:390px; transform:rotate(10deg); border-radius:36px; font-size:22px; }.kit-recover-key { position:absolute; left:1340px; top:460px; display:flex; align-items:center; gap:16px; }
+.kit-recover-link { position:absolute; left:1100px; top:760px; transform:rotate(-3deg); }.kit-recover-link>div:last-child { display:flex; justify-content:center; gap:12px; align-items:center; color:#173449; font-size:24px; margin-top:25px; }
+.kit-native { padding:0; width:1920px; }.kit-native .kit-gallery { display:block; }.kit-native .kit-item { margin-bottom:32px; }.kit-native .kit-stage { width:1920px; }.kit-native .kit-artboard { zoom:1; }
+.kit-single .kit-gallery { grid-template-columns:1fr; }
+.kit-native .kit-item:last-child { margin-bottom:0; }
+@media(max-width:850px) { .kit-gallery { grid-template-columns:1fr; }.kit-toolbar { align-items:flex-start; flex-direction:column; }.kit-page:not(.kit-native) { padding:24px 16px; } }
+/* Importers may scale boxes without scaling text when CSS zoom is used.
+   The main/export page therefore uses literal pixel dimensions throughout. */
+.kit-toolbar p { margin-top:12px; color:#a7c2cd; font-size:13px; }
+.kit-page.kit-export { width:1920px; padding:0; }
+.kit-export .kit-toolbar { width:1920px; padding:32px; margin:0; flex-direction:row; align-items:center; }
+.kit-export .kit-gallery { display:block; width:1920px; }
+.kit-export .kit-item { width:1920px; margin:0 0 40px; }
+.kit-export .kit-item-label { padding:16px 24px; margin:0; }
+.kit-export .kit-stage { container-type:normal; width:1920px; height:1080px; aspect-ratio:auto; }
+.kit-export .kit-artboard { zoom:1; width:1920px; height:1080px; clip-path:inset(0); }
+.kit-export .kit-curves { clip-path:inset(0); }
+.kit-export .kit-artboard>h2 { width:800px; }
+.kit-export .kit-identities a,.kit-export .kit-brand { white-space:nowrap; }
+.kit-export .kit-item:last-child { margin-bottom:0; }

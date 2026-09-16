@@ -3,8 +3,10 @@
 This file supersedes Beam's previous stocks-and-crypto positioning under the user's explicit Arc-only reskin request.
 
 - Name: Luma. Send **USDC on Arc** through a link.
+- Public identity: Twitter/X `@uselumacash` (`https://x.com/uselumacash`); website `useluma.cash` (`https://useluma.cash`).
+- $LUMA is not live yet. The footer CA is a blurred placeholder, not a released token contract address. Do not substitute the USDC escrow address.
 - Preserve Beam's flow: sender signs in, sends and shares; recipient opens the link, signs in with Privy, receives an embedded wallet and claims without pre-funding gas.
-- Privy embedded EVM wallets are a verified future integration option; see `docs/privy-arc.md`. Do not advertise them as active before configuration and testing.
+- Privy embedded EVM wallets and sponsored claims are implemented; see `docs/service-setup.md`. Distinguish implemented behavior from live availability, which requires configured services and end-to-end testing.
 - Anyone with the full link can claim once. Share privately.
 - Sender may cancel only before claim confirmation. No automatic expiry.
 - No application fee. Sender pays the deposit network fee in USDC; the funded relayer pays the recipient's claim fee. Subsequent outgoing transfers use the recipient's USDC for gas.

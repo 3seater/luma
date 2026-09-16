@@ -95,7 +95,7 @@ export function Claim() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [continueAfterLogin, auth.authenticated, auth.ready, link]);
   const closed = deposit && deposit.status !== 1;
-  return <main className="flow-page"><div className="flow-heading"><span className="eyebrow">A LINK FROM SOMEONE, JUST FOR YOU</span><h1>{done ? 'A little closer.' : 'Something good landed.'}</h1><p>USDC, sent with a simple link.</p></div><div className="flow-card center">
+  return <main className="flow-page"><div className="receipt-moment"><h1>{done ? 'Your Luma is claimed' : 'Claim your Luma'}</h1></div><div className="flow-card center">
     {deposit ? <><GiftCard amount={formatUnits(deposit.amount, 18)} label="A Luma for you" status={deposit.status === 2 ? 'Claimed' : deposit.status === 3 ? 'Cancelled' : 'Ready to receive'} /><p className="small">From {shortAddress(deposit.sender)} · {arc.name}</p></> : <UsdcCoin />}
     {done ? <><h2>USDC claimed.</h2><p className="small">The claim has been confirmed on Arc.</p><Link href="/send" className="button full">Send some good along <ArrowUpRight size={16} /></Link></> : closed ? <p className="notice">{deposit.status === 2 ? 'This link has already been claimed.' : 'The sender cancelled this link and recovered the USDC.'}</p> : deposit && link ? <>
       <p className="notice">Open your link, sign in, and claim. No existing wallet or gas balance needed.</p>

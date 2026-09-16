@@ -43,7 +43,7 @@ export function Send() {
         privateKeyToAccount(record.key); parseAmount(record.amount);
         setPending(record); setAmount(record.amount); setTx(record.hash); setStep(3);
       }
-    } catch { setWarning('This browser could not restore the pending link. Use Your links to recover an unclaimed deposit by ID.'); }
+    } catch { setWarning('This browser could not restore the pending link. Use Your Lumas to recover an unclaimed deposit by ID.'); }
   }, []);
   async function finish(record: Pending) {
     if (!client || !escrowAddress || !record.hash) return;
@@ -103,17 +103,17 @@ export function Send() {
     lock.current = true; setError('');
     try { await finish(pending); } catch (e) { setError(userError(e)); } finally { setBusy(''); lock.current = false; }
   }
-  const title = link ? 'Your Luma is ready' : busy ? 'Sending…' : step === 1 ? 'Choose a token' : step === 2 ? 'Set an amount' : 'Confirm & send';
+  const title = busy ? 'Sending…' : step === 1 ? 'Choose a token' : step === 2 ? 'Set an amount' : 'Confirm & send';
   const next = () => {
     try { parseAmount(amount); setError(''); setStep(3); }
     catch (e) { setError(userError(e)); }
   };
   return <main className="flow-page send-flow-page">
     <div className="send-flow-wrap">
+      <div className="receipt-moment"><h1>{link ? 'Your Luma is ready' : 'Send a Luma'}</h1></div>
       {!link && <ol className="flow-steps" aria-label="Send progress">{['Token', 'Amount', 'Send'].map((label, index) => <li key={label} className={step === index + 1 ? 'current' : step > index + 1 ? 'complete' : ''} aria-current={step === index + 1 ? 'step' : undefined}><span>{step > index + 1 ? <Check size={11} /> : index + 1}</span>{label}</li>)}</ol>}
-      {link && <div className="receipt-moment"><span className="receipt-check"><Check size={24} /></span><h1>Your Luma is ready.</h1></div>}
       <div className={link ? 'flow-receipt' : 'flow-card flow-wizard'}>
-        {!link && <div className="wizard-header"><button className="glass-back" disabled={!!busy || !!pending?.hash} aria-label="Back" onClick={() => { setError(''); if (step === 1) window.location.assign('/'); else setStep(step === 3 ? 2 : 1); }}><ArrowLeft size={18} /></button><h1>{title}</h1><span /></div>}
+        {!link && <div className="wizard-header"><button className="glass-back" disabled={!!busy || !!pending?.hash} aria-label="Back" onClick={() => { setError(''); if (step === 1) window.location.assign('/'); else setStep(step === 3 ? 2 : 1); }}><ArrowLeft size={18} /></button><h2>{title}</h2><span /></div>}
         <div className={link ? 'receipt-content' : 'wizard-body'}>
           {link ? <>
             <GiftCard amount={amount} status="Ready to share" />
@@ -122,7 +122,7 @@ export function Send() {
               <textarea id="claim-link" className="link-output" readOnly value={link} rows={3} />
               <button className="button full" onClick={async () => { try { await navigator.clipboard.writeText(link); setCopied(true); } catch { setError('Clipboard unavailable. Select and copy the link above.'); } }}>{copied ? <Check size={16} /> : <Copy size={16} />}{copied ? 'Link copied' : 'Copy claim link'}</button>
               <p className="small center">Anyone with the full link can claim once. Share privately.</p>
-              <details className="receipt-details"><summary>Deposit #{id} · Recovery details</summary><p className="small">Your link is backed up securely when the backup succeeds. Use the same sending wallet in Your links to recover it on any device or cancel an unclaimed deposit.</p><button className="button secondary full" onClick={async () => { if (!pending) return; try { await backupLink(link, pending.sender); setWarning('Backup saved. Recover this link with the same sending wallet on any device.'); } catch { setWarning('Backup unavailable. Keep a copy of your link and try again.'); } }}>Save backup again</button></details>
+              <details className="receipt-details"><summary>Deposit #{id} · Recovery details</summary><p className="small">Your link is backed up securely when the backup succeeds. Use the same sending wallet in Your Lumas to recover it on any device or cancel an unclaimed deposit.</p><button className="button secondary full" onClick={async () => { if (!pending) return; try { await backupLink(link, pending.sender); setWarning('Backup saved. Recover this link with the same sending wallet on any device.'); } catch { setWarning('Backup unavailable. Keep a copy of your link and try again.'); } }}>Save backup again</button></details>
               <button className="button secondary full" onClick={() => { sessionStorage.removeItem(pendingKey); setPending(undefined); setLink(''); setTx(undefined); setId(''); setCopied(false); setError(''); setWarning(''); setStep(1); }}>Send another link</button>
             </div>
           </> : busy ? <div className="sending-stage" role="status"><div className="sending-orbit"><UsdcCoin /></div><h2>{busy}</h2><p>Keep this tab open. Your link will appear after confirmation.</p></div> : step === 1 ? <div className="wizard-stage">
@@ -140,14 +140,14 @@ export function Send() {
             <GiftCard amount={amount} />
             <div className="review-details"><div className="detail-row"><span>Application fee</span><strong>0 USDC</strong></div><div className="detail-row"><span>Network fee</span><strong>Shown in your wallet</strong></div><div className="detail-row"><span>Recipient gets</span><strong>{amount} USDC</strong></div></div>
             {!escrowAddress && <p className="notice">Sending is not live yet. The Arc escrow must be deployed and configured first.</p>}
-            {pending?.hash ? <button className="button full" onClick={resume}>Recover pending link <ArrowUpRight size={16} /></button> : !address ? <Wallet /> : <button className="button full" disabled={!escrowAddress} onClick={send}>Send USDC <ArrowUpRight size={17} /></button>}
+            {pending?.hash ? <button className="button full" onClick={resume}>Recover pending link <ArrowUpRight size={16} /></button> : !address ? <Wallet /> : <button className="button full" disabled={!escrowAddress} onClick={send}>Send a Luma <ArrowUpRight size={17} /></button>}
 
           </div>}
           {error && <p id="send-error" className="error" role="alert">{error}</p>}{warning && <p className="notice">{warning}</p>}
           {tx && <a className="text-link" href={transactionUrl(tx)} target="_blank" rel="noreferrer">View transaction <ArrowUpRight size={14} /></a>}
         </div>
       </div>
-      <div className="flow-under"><Link href="/history">Your links ↗</Link></div>
+      <div className="flow-under"><Link href="/history">Your Lumas ↗</Link></div>
     </div>
   </main>;
 }
