@@ -9,7 +9,7 @@
   border: 1px solid #fff;
   border-radius: 32px;
   background: linear-gradient(145deg, #ffffffd9, #f3fbff80);
-  box-shadow: 0 30px 80px -35px #2589c45c, inset 0 1px 0 #fff;
+  box-shadow: 0 30px 80px -35px #254c6c5c, inset 0 1px 0 #fff;
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   color: #284d69;
@@ -85,7 +85,7 @@
 }
 
 .hero-demo-steps button[aria-pressed="true"]>span {
-  background: #38a0e1;
+  background: #527c91;
   color: #fff;
   border-color: transparent;
 }
@@ -136,15 +136,15 @@
   border-color: #fff;
   background: #fff;
   color: #214861;
-  box-shadow: 0 3px 12px #247db512;
+  box-shadow: 0 3px 12px #254c6c12;
 }
 
 .hero-demo-beam {
   padding: 24px;
   border: 1px solid #fff;
   border-radius: 23px;
-  background: radial-gradient(ellipse at 100% 0%, #9be7fd99, transparent 65%), linear-gradient(135deg, #fff, #eff9ff);
-  box-shadow: 0 12px 28px -15px #2589c445;
+  background: radial-gradient(ellipse at 100% 0%, #b8d5d999, transparent 65%), linear-gradient(135deg, #fff, #eff9ff);
+  box-shadow: 0 12px 28px -15px #254c6c45;
   transition: background .25s;
 }
 
@@ -182,7 +182,7 @@
 .hero-demo-asset .landing-token-logo {
   border-radius: 13px;
   border: 1px solid #fff;
-  box-shadow: 0 6px 12px #247db51c;
+  box-shadow: 0 6px 12px #254c6c1c;
 }
 
 .hero-demo-card-bottom {

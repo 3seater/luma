@@ -13,7 +13,7 @@ export function BottomCTA({
     <div className="cta-pattern" aria-hidden="true">
       <svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice" fill="none">
         <defs>
-          <linearGradient id="cta-ribbon" x1="1000" y1="0" x2="500" y2="650" gradientUnits="userSpaceOnUse"><stop stopColor="#fff" stopOpacity=".65" /><stop offset=".55" stopColor="#9BE7FD" stopOpacity=".12" /><stop offset="1" stopColor="#38A0E1" stopOpacity=".3" /></linearGradient>
+          <linearGradient id="cta-ribbon" x1="1000" y1="0" x2="500" y2="650" gradientUnits="userSpaceOnUse"><stop stopColor="#fff" stopOpacity=".65" /><stop offset=".55" stopColor="#b8d5d9" stopOpacity=".12" /><stop offset="1" stopColor="#527c91" stopOpacity=".3" /></linearGradient>
         </defs>
         <g className="cta-ribbons">
           <path d="M860-180C1380 80 1320 410 870 800H1080C1580 380 1530 70 1050-180Z" fill="url(#cta-ribbon)" />
@@ -23,6 +23,6 @@ export function BottomCTA({
         </g>
       </svg>
     </div>
-    <div className="layout"><h2 id="cta-heading">Stocks and crypto. Simply sent.</h2><button className="premium-button" onClick={() => onSendClick ? onSendClick() : router.push('/send')}>Send a Beam <ArrowUpRight size={18} /></button></div>
+    <div className="layout"><h2 id="cta-heading">USDC. Simply sent.</h2><button className="premium-button" onClick={() => onSendClick ? onSendClick() : router.push('/send')}>Send USDC <ArrowUpRight size={18} /></button></div>
   </section>;
 }

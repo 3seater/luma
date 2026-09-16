@@ -1,0 +1,63 @@
+/* Beam's original presentation in Luma's Arc-inspired palette. */
+.beam-restored { --beam-blue:#254c6c; --beam-link:#254c6c; --beam-wallet:#254c6ccc; }
+.beam-restored .premium-hero { background:#041127; }
+.beam-restored .hero-atmosphere { background:linear-gradient(180deg,#041127 0%,#112d49 41%,#355d7a 71%,#81aeb5 93%,#e4cda2 100%); }
+.beam-restored .hero-atmosphere::after { content:none; }
+.beam-restored .hero-copy { color:#f5f8f8; }
+.beam-restored .hero-copy h1 { max-width:none; }
+.beam-restored .hero-copy h1 span { color:#b8d5d9; }
+.beam-restored .hero-copy p { color:#d0dfe7; }
+.beam-restored .hero-actions .text-link { color:#e4eff2; }
+.beam-restored .hero-base { color:#173449; border-color:#ffffff30; }
+.beam-restored .hero-grid { gap:40px; }
+.beam-restored .hero-demo { color:#254c6c; min-height:0; }
+.hero-demo-currency { display:flex; align-items:center; gap:9px; padding:18px 4px; font-size:13px; }
+.hero-demo-currency .usdc-coin { width:24px; height:24px; }
+.hero-demo-currency>span:last-child { margin-left:auto; font-size:11px; color:#547084; }
+.hero-demo-asset .usdc-coin { width:48px; height:48px; }
+.beam-restored .hero-demo-beam { background:linear-gradient(135deg,#ffffffb8,#b8d5d980); border-color:#fff; }
+.beam-restored .token-eth { left:calc(50% - 30px); top:35px; }
+.beam-restored .token-disc .usdc-coin { width:48px; height:48px; }
+.beam-restored .share-bubble .usdc-coin { width:22px; height:22px; }
+.beam-restored .receive-mark .usdc-coin { width:56px; height:56px; }
+.beam-restored .receive-notice .usdc-coin { width:28px; height:28px; }
+.beam-restored .why-section { background:#eaf1f2; }
+.beam-restored .step-card { background:linear-gradient(155deg,#ffffffc9,#e5eff0); border-color:#c1d5da; }
+.beam-restored .bottom-cta { background:radial-gradient(ellipse at 12% 10%,#ffffffeb,transparent 65%),linear-gradient(120deg,#e3eff0,#b8d5d9 60%,#87b3bc); }
+.luma-faq>div+div { border-top:1px solid #254c6c20; }
+.luma-faq h3 { margin:0; }
+.luma-faq button { display:flex; justify-content:space-between; align-items:center; gap:16px; width:100%; padding:25px 0; color:#254c6c; background:transparent; font-size:15px; text-align:left; }
+.luma-faq p { padding:0 30px 25px 0; font-size:14px; line-height:1.7; color:#547084; }
+.premium-footer { position:relative; padding:66px 0 28px; background:radial-gradient(ellipse at 90% 150%,#87b3bc80,transparent 65%),linear-gradient(145deg,#f3f7f7,#dce9e9 70%,#b8d5d9); color:#547084; }
+.premium-footer>.layout { width:min(1200px,calc(100% - 48px)); padding:0; }
+.footer-columns { display:grid; grid-template-columns:1.2fr 1fr 1fr 1.3fr 1fr; gap:35px; padding-bottom:55px; }
+.footer-columns .wordmark { align-self:start; color:#254c6c; }
+.footer-columns nav { display:flex; flex-direction:column; align-items:flex-start; gap:13px; }
+.footer-columns h3 { font-size:13px; font-weight:500; margin-bottom:8px; }
+.footer-columns nav a { font-size:14px; color:#254c6c; }
+.footer-columns a:hover { color:#06162b; }
+.footer-bottom { display:flex; justify-content:space-between; gap:20px; padding-top:25px; border-top:1px solid #254c6c26; font-size:12px; }
+.wallet-menu.restored-wallet { position:absolute; top:calc(100% + 16px); right:0; width:288px; max-width:calc(100vw - 32px); padding:0; border-radius:20px; color:#fff; background:#254c6cdd; border:1px solid #ffffff47; backdrop-filter:blur(32px) saturate(1.8); box-shadow:0 16px 48px #06162b4d,inset 0 1px #ffffff66; overflow:hidden; animation:wallet-enter .16s ease-out; }
+.wallet-menu-heading { display:flex; align-items:center; gap:8px; padding:16px; font-size:14px; }
+.wallet-menu-heading button { display:grid; place-items:center; width:27px; height:27px; border-radius:8px; background:#ffffff18; color:inherit; }
+.wallet-menu-heading .wallet-disconnect { margin-left:auto; }
+.wallet-recent { padding:0 16px 14px; }
+.wallet-recent>span { color:#ffffff88; font-size:12px; }
+.wallet-recent p { margin-top:12px; color:#ffffff99; font-size:13px; }
+.wallet-recent a { display:flex; align-items:center; gap:10px; padding:10px 0; font-size:13px; }
+.wallet-recent a svg { margin-left:auto; }
+.wallet-recent .usdc-coin { width:24px; height:24px; }
+.wallet-menu-action { display:flex; justify-content:space-between; align-items:center; width:100%; padding:12px 16px; background:transparent; color:#ffffffc4; font-size:13px; text-align:left; }
+.wallet-menu-action:hover { background:#ffffff15; color:white; }
+.wallet-all { border-top:1px solid #ffffff20; }
+.restored-wallet .error { margin:12px; }
+.flow-under { justify-content:center; }
+@keyframes wallet-enter { from { opacity:0; transform:translateY(-6px) scale(.96); } to { opacity:1; transform:none; } }
+@media(max-width:760px) { .footer-columns { grid-template-columns:repeat(2,minmax(0,1fr)); gap:35px 24px; } .footer-columns .wordmark { grid-column:1/-1; } .beam-restored .hero-grid { gap:32px; } }
+@media(prefers-reduced-motion:reduce) { .wallet-menu.restored-wallet { animation:none; } }
+.beam-restored .hero-demo { display:block; }
+.beam-restored .hero-grid { padding-block:0; }
+.beam-restored .share-link { color:#254c6c; background:#d2e5e9; }
+.beam-restored .share-bubble { color:#254c6c; }
+.beam-restored .why-section { overflow:hidden; }
+.beam-restored .security-orbit { inset:auto; left:50%; top:50%; transform:translate(-50%,-50%); }

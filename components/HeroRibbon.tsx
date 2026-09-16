@@ -8,12 +8,12 @@ export function HeroRibbon({ asset }: { asset: string }) {
     <svg viewBox="0 0 1400 900" fill="none" preserveAspectRatio="xMidYMid slice">
       <defs>
         <linearGradient id="hero-ribbon-glass" x1="260" y1="820" x2="1090" y2="100" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#38a0e1" stopOpacity=".12" /><stop offset=".25" stopColor="#79d6fc" stopOpacity=".65" />
-          <stop offset=".46" stopColor="#f5fdff" stopOpacity=".85" /><stop offset=".55" stopColor="#9be7fd" stopOpacity=".45" />
-          <stop offset=".8" stopColor="#38a0e1" stopOpacity=".62" /><stop offset="1" stopColor="#e6faff" stopOpacity=".7" />
+          <stop stopColor="#527c91" stopOpacity=".12" /><stop offset=".25" stopColor="#87b3bc" stopOpacity=".65" />
+          <stop offset=".46" stopColor="#f5fdff" stopOpacity=".85" /><stop offset=".55" stopColor="#b8d5d9" stopOpacity=".45" />
+          <stop offset=".8" stopColor="#527c91" stopOpacity=".62" /><stop offset="1" stopColor="#e6faff" stopOpacity=".7" />
         </linearGradient>
         <linearGradient id="hero-ribbon-fold" x1="620" y1="470" x2="1040" y2="850" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#247db5" stopOpacity=".28" /><stop offset=".42" stopColor="#79d6fc" stopOpacity=".58" /><stop offset="1" stopColor="#f5fdff" stopOpacity=".18" />
+          <stop stopColor="#254c6c" stopOpacity=".28" /><stop offset=".42" stopColor="#87b3bc" stopOpacity=".58" /><stop offset="1" stopColor="#f5fdff" stopOpacity=".18" />
         </linearGradient>
         <linearGradient id="hero-ribbon-edge" x1="100" y1="900" x2="1250" y2="40" gradientUnits="userSpaceOnUse">
           <stop stopColor="white" stopOpacity="0" /><stop offset=".35" stopColor="white" stopOpacity=".95" /><stop offset=".7" stopColor="#e4faff" /><stop offset="1" stopColor="white" stopOpacity=".1" />

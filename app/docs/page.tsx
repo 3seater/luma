@@ -1,13 +1,14 @@
-import type { Metadata } from 'next';
-import './docs.css';
-import { DocsPageClient } from './DocsPageClient';
-
-export const metadata: Metadata = {
-  title: 'Docs — Beam',
-  description:
-    'Learn how to send stocks and crypto by link, create Spectrum bundles, and understand Beam’s escrow contracts and gasless claims.',
-};
-
-export default function DocsPage() {
-  return <DocsPageClient />;
+import { arc, escrowAddress } from '@/lib/arc';
+export const metadata = { title: 'How Luma works' };
+export default function Docs() {
+  return <main className="document-page"><h1>A simple link. An onchain transfer.</h1><article className="document">
+    <h2>Send USDC on Arc</h2><p>Luma lets you deposit USDC into an escrow contract and give someone a private link to claim it. Only USDC on Arc is supported.</p>
+    <ol><li>Connect an Arc-compatible wallet with USDC on Arc.</li><li>Choose an amount and confirm the deposit transaction.</li><li>Wait for confirmation, then copy and privately share your claim link.</li><li>The recipient opens the link, connects their wallet, and confirms a claim.</li></ol>
+    <h2>Your link is the key</h2><p>Your browser creates a random claim key for each deposit. The key stays in the link’s fragment, after the # symbol. Fragments are not sent to the web server by the browser. The escrow only stores the key’s public address.</p><p>Anyone with the full link can claim its USDC. Keep it out of public posts, screenshots, shared documents, and support messages. A copied claim transaction cannot change the payout address: the signature is bound to that address, deposit, chain, and contract.</p>
+    <h2>Wallets and fees</h2><p>Both sender and recipient connect a wallet. Arc uses USDC for its network fees. Each wallet needs enough USDC for the transaction fee; the recipient cannot use the still-escrowed amount to pay their claim fee. There is no application fee in this version.</p>
+    <h2>Cancel an unclaimed link</h2><p>Open Your links with your sending wallet and choose Cancel &amp; recover USDC. Once the cancellation confirms, the link can no longer be claimed. If a claim confirms first, cancellation fails. The original deposit returns to the sender; network fees are not refundable.</p>
+    <h2>History and recovery</h2><p>Deposit IDs are saved in this browser. The latest send’s claim key is kept in this tab’s session storage so you can recover the link after a refresh. Save a copy before closing the tab or starting another send. There is no server backup of claim keys.</p><p>On another device, use the deposit ID from your transaction’s Deposited event to look up and cancel an unclaimed deposit. A deposit ID alone cannot recreate a lost claim link.</p>
+    <h2>Network configuration</h2><table><tbody><tr><th>Network</th><td>{arc.name}</td></tr><tr><th>Chain ID</th><td>{arc.id}</td></tr><tr><th>Currency</th><td>USDC</td></tr><tr><th>Escrow</th><td><code>{escrowAddress || 'Not deployed / configured'}</code></td></tr><tr><th>Explorer</th><td><a href={arc.blockExplorers.default.url} target="_blank" rel="noreferrer">Arcscan ↗</a></td></tr></tbody></table>
+    <h2>For developers</h2><p>Next.js and React provide the interface. Wagmi and viem handle wallet connections and contract calls. The Solidity escrow accepts native USDC in 18-decimal units through a payable deposit. Arc’s 6-decimal ERC-20 USDC interface represents the same balance and is not used in this flow.</p><p>The contract has no administrator, upgrade mechanism, arbitrary-token deposit function, or application fee. Deposits have no automatic expiry. This implementation has local automated tests; it has not received an independent security audit.</p><p>Network reference: <a href="https://docs.arc.io/arc/references/connect-to-arc" target="_blank" rel="noreferrer">Arc connection docs</a>. Currency reference: <a href="https://docs.arc.io/arc/concepts/stablecoin-native-model" target="_blank" rel="noreferrer">Arc’s stablecoin model</a>.</p>
+  </article></main>;
 }

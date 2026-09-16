@@ -1,15 +1,11 @@
-# Beam project instructions
+# Luma project instructions
 
-## Product copy
+Read `docs/copy-guide.md` before changing user-facing copy. The user explicitly replaced Beam's stocks/crypto/bundle product with USDC-only sending on Arc. Old product instructions in Git history are superseded.
 
-Read `docs/copy-guide.md` before writing or changing site copy, metadata, captions, bios, or marketing text. It records the approved stocks-and-crypto positioning and provider-neutral claiming language.
+Keep the app independent from official Arc/Circle branding claims. Preserve the supplied navy/blue/sea-glass/sand palette and the simple send/share/claim structure.
 
-## Social graphics and brand artwork
+Preserve Beam's Privy sign-in, embedded receiving wallets, sponsored claims and Supabase recovery. The user clarified that the same sending wallet must recover its links on any device; only bundles/Enso and multi-asset sending are removed.
 
-Before creating a Beam social graphic, announcement, article cover, banner, or other marketing artwork, read `docs/graphics-style-guide.md`.
+Native USDC uses 18 decimals. Do not apply the ERC-20 interface's six-decimal accounting to msg.value or native balance. Signatures must remain bound to chain, escrow, deposit and recipient. Claim keys must never enter logs or analytics. The user authorized encrypted Supabase claim-link backups for cross-device recovery: transmit secrets only to the first-party backup endpoint over HTTPS, encrypt at rest, and verify sender wallet ownership before returning them. Never expose a full link through public history, RPC, Privy, or relay requests.
 
-The user approved the real HTML/SVG docs announcement at `/social/docs-live` as the reference for future graphics. Default to editable HTML/CSS/SVG compositions built from the actual website components, logo, fonts, and copy. Follow its design rules and adapt the subject to the request. Do not default to image generation or fabricated product interfaces.
-
-Use `app/social/docs-live/DocsLaunch.tsx` and `app/social/docs-live/poster.css` as the concrete example. Preserve this approved reference when making new artwork; create a separate route/artboard. A later explicit user request can override these defaults.
-
-These instructions apply to marketing artwork; they do not require changes to the production site layout or transaction flows.
+Run typecheck, lint, link/amount tests, contract tests and production build when changing transaction behavior. Never use an old Beam escrow address on Arc. Deployment and funding are separate operator actions; a build must not submit transactions.

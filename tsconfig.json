@@ -4,7 +4,6 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "ES2020",
       "esnext"
     ],
     "allowJs": true,
@@ -35,14 +34,11 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next-dev/types/**/*.ts",
-    ".next-spectrum-build/types/**/*.ts",
-    ".next-spectrum/types/**/*.ts",
-    ".next-stock-art/types/**/*.ts",
-    ".next-dev-recovery/types/**/*.ts"
+    ".next-e2e/types/**/*.ts",
+    ".next-ui-check/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",
-    "contracts/lib",
-    "output/crate-reference"
+    "contracts/out"
   ]
 }

@@ -31,7 +31,7 @@
   position: absolute;
   inset: 12% 8% 0;
   border-radius: 50%;
-  background: radial-gradient(ellipse, #9be7fd45, transparent 70%);
+  background: radial-gradient(ellipse, #b8d5d945, transparent 70%);
   pointer-events: none;
 }
 .landing-page .token-disc,
@@ -73,7 +73,7 @@
   position: absolute;
   inset: -1px;
   border-radius: inherit;
-  background: radial-gradient(circle at 50% 1%, #38a0e1 0 3px, #9be7fd80 4px, transparent 9px);
+  background: radial-gradient(circle at 50% 1%, #527c91 0 3px, #b8d5d980 4px, transparent 9px);
   animation: beam-orbit 32s linear infinite;
   animation-play-state: paused;
 }
@@ -88,8 +88,8 @@
   width: min(var(--landing-content-max), calc(100% - 2 * var(--landing-gutter)));
   border-radius: 36px;
   border: 1px solid #ffffffd9;
-  background: radial-gradient(ellipse at 12% 10%, #ffffffeb, transparent 65%), linear-gradient(120deg, #dff7ff, #9be7fd 60%, #79d6fc);
-  box-shadow: inset 0 1px 0 white, 0 18px 65px -45px #38a0e199;
+  background: radial-gradient(ellipse at 12% 10%, #ffffffeb, transparent 65%), linear-gradient(120deg, #dff7ff, #b8d5d9 60%, #87b3bc);
+  box-shadow: inset 0 1px 0 white, 0 18px 65px -45px #527c9199;
 }
 .landing-page .bottom-cta > .layout {
   position: relative;
@@ -114,7 +114,7 @@
   z-index: -1;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(ellipse at 92% 130%, #38a0e170, transparent 65%), radial-gradient(ellipse at 28% 115%, #9be7fdcc, transparent 64%), linear-gradient(180deg, #ffffff, #effbff00);
+  background: radial-gradient(ellipse at 92% 130%, #527c9170, transparent 65%), radial-gradient(ellipse at 28% 115%, #b8d5d9cc, transparent 64%), linear-gradient(180deg, #ffffff, #effbff00);
 }
 .landing-page .premium-footer::after {
   content: '';

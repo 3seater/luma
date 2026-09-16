@@ -1,19 +1,17 @@
-# Beam copy — approved direction
+# Luma copy
 
-Primary headline: **An easier way to send stocks and crypto.**
+This file supersedes Beam's previous stocks-and-crypto positioning under the user's explicit Arc-only reskin request.
 
-Hero support: Pick an asset or a Spectrum bundle, choose an amount, and share a link. No existing wallet needed to receive.
+- Name: Luma. Send **USDC on Arc** through a link.
+- Preserve Beam's flow: sender signs in, sends and shares; recipient opens the link, signs in with Privy, receives an embedded wallet and claims without pre-funding gas.
+- Privy embedded EVM wallets are a verified future integration option; see `docs/privy-arc.md`. Do not advertise them as active before configuration and testing.
+- Anyone with the full link can claim once. Share privately.
+- Sender may cancel only before claim confirmation. No automatic expiry.
+- No application fee. Sender pays the deposit network fee in USDC; the funded relayer pays the recipient's claim fee. Subsequent outgoing transfers use the recipient's USDC for gas.
+- Supabase stores encrypted claim-link backups. Signing with the same sending wallet enables recovery on any device. Never imply another wallet or an unauthenticated viewer can recover links.
+- No stocks, bundles, swaps, arbitrary tokens, fiat checkout, guaranteed settlement timing, or official affiliation claims.
+- Never describe the contract as audited or live without deployment and review evidence.
 
-Closing CTA: Stocks and crypto. Simply sent.
+Colors: midnight navy #06162b, steel blue #254c6c, sea-glass #87b3bc, warm sand #dfcca1. Keep the simple landing hierarchy and glass-like preview from Beam. References are supplied by the user.
 
-Suggested social bio: Stocks and crypto, sent by link. No existing wallet needed to receive.
-
-Use stocks and crypto together in marketing. Use asset as the umbrella term in the sending flow. In technical documentation, retain precise terms such as stock tokens, ERC-20 tokens, and onchain deposits.
-
-Claiming is easy: open the link, sign in, and claim. No existing wallet needed. A wallet is created automatically when needed.
-
-Do not enumerate authentication providers in explanatory copy. Use “sign in,” “an available sign-in method,” or “a social account” where applicable. Actual sign-in buttons can name their provider. Do not suggest no authentication/account is required to complete a claim.
-
-Keep copy short, plain, and factual. Avoid cute gift-card language, filler microcopy, and unsupported promises about instant settlement. New explicit user direction takes precedence.
-
-Spectrum is Beam’s preset bundle feature. Describe it as several assets sent through one link. The sender pays in ETH; preset weights allocate the input budget. The recipient claims all assets together. Cancellation returns the bundle assets, not the original ETH input. Avoid calling bundles managed or automatically rebalanced funds, or promising fixed final portfolio percentages.
+UI direction: preserve Beam's floating frosted-glass navigation, stepped token → amount → review flow, translucent cards and floating share receipt. Use the official USDC token logo. The approved Luma logo/PFP remains unchanged.

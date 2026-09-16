@@ -1,59 +1,31 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-.yarn/install-state.gz
-
-# testing
-/coverage
-
-# next.js
+# Dependencies and generated builds
+/node_modules/
+/.pnpm-store/
 /.next/
 /.next-dev/
-/.next-dev-recovery/
-/.next-stock-art/
-/.next-artwork/
-/.next-spectrum/
-/.next-spectrum-build/
-/output/spectrum-check/
-/output/crate-reference/
+/.next-e2e/
+/.next-ui-check/
 /out/
+/build/
+/coverage/
+/contracts/out/
 
-# production
-/build
+# Local browser verification artifacts
+/output/qa/
 
-# misc
-.DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# local env files
+# Local configuration and secrets
+.env
+.env.*
+!.env.local.example
 .env*.local
+/.data/
+*.pem
+/.vercel/
 
-# vercel
-.vercel
-
-# typescript
+# Tool artifacts
 *.tsbuildinfo
 next-env.d.ts
-
-# beam link server-side store (local dev only — use Redis in production)
-/.data/
-
-# Windows command artifacts
+npm-debug.log*
+pnpm-debug.log*
+.DS_Store
 nul
-tsc-out.txt
-
-# Foundry dependency libraries (nested git repos — installed via forge install)
-/contracts/lib/forge-std/
-/contracts/lib/openzeppelin-contracts/
-
-# Foundry build output
-/contracts/out/
-/contracts/cache/
