@@ -18,11 +18,11 @@ export function GlassHeader() {
   return <header className="frost-header">
     <nav className="frost-nav" aria-label="Main navigation">
       <Link href="/" className="wordmark" aria-label="Luma home"><svg viewBox="94 165 544 385" aria-hidden="true"><path d={LUMA_MARK_PATH} fill="currentColor" /></svg>luma</Link>
-      <div className="glass-nav-links"><Link href="/#how-it-works">How it works</Link><Link href="/history">Your Lumas</Link><Link href="/wallet">Your wallet</Link><Link href="/docs">Docs</Link></div>
+      <div className="glass-nav-links"><Link href="/#how-it-works">How it works</Link><a href="https://x.com/uselumacash" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Twitter</a><Link href="/wallet">Your wallet</Link><Link href="/docs">Docs</Link></div>
       <Link href="/send" className="button nav-send">Send a Luma <ArrowUpRight size={15} /></Link>
       <button className="glass-menu-toggle" aria-label={open ? 'Close navigation' : 'Open navigation'} aria-expanded={open} aria-controls="glass-mobile-nav" onClick={() => setOpen(!open)}>{open ? <X size={20} /> : <Menu size={20} />}</button>
     </nav>
     <div className="glass-header-wallet"><Wallet /></div>
-    {open && <nav id="glass-mobile-nav" className="glass-mobile-nav" aria-label="Mobile navigation"><Link href="/#how-it-works" onClick={() => setOpen(false)}>How it works</Link><Link href="/history">Your Lumas</Link><Link href="/wallet">Your wallet</Link><Link href="/docs">Docs</Link><Link href="/send" className="button">Send a Luma <ArrowUpRight size={16} /></Link></nav>}
+    {open && <nav id="glass-mobile-nav" className="glass-mobile-nav" aria-label="Mobile navigation"><Link href="/#how-it-works" onClick={() => setOpen(false)}>How it works</Link><a href="https://x.com/uselumacash" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Twitter</a><Link href="/wallet">Your wallet</Link><Link href="/docs">Docs</Link><Link href="/send" className="button">Send a Luma <ArrowUpRight size={16} /></Link></nav>}
   </header>;
 }
